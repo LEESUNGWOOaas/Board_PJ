@@ -1,16 +1,17 @@
 HELP.md
-.gradle
-build/
+/.gradle/
+/bin/
+/build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+/target/
 ### STS ###
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 bin/
@@ -35,3 +36,13 @@ out/
 
 ### VS Code ###
 .vscode/
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Other
+*.swp
+*~
