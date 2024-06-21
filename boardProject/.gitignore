@@ -11,6 +11,7 @@ HELP.md
 .classpath
 .factorypath
 .project
+.gitignore
 .settings/
 .springBeans
 .sts4-cache
