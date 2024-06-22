@@ -11,6 +11,6 @@ Board 페이지 프로젝트
 🕕2024-06/22 ~<br><br>
 📧E-mail<br>
 🆔keroro1945@naver.com<br><br>
-🆔sa775628@gmail.com
+🆔sa775628@gmail.com<br>
 📞phone<br>
 🅿010-5020-1538
