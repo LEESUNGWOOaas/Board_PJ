@@ -1,11 +1,17 @@
 package com.board.admin.main.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.board.admin.main.service.MainService;
+
 @Controller
-public class mainController {
+public class MainController {
+	@Autowired
+	private MainService MainService;
+	
 	
 	@RequestMapping({"/","/admin"})
 	public String index() {
@@ -14,6 +20,9 @@ public class mainController {
 	
 	@GetMapping("/admin/index")
 	public String main() {
-		return "redirect:/admin/main/index";
+		
+		
+		return "/main/index.admin";
 	}
+	
 }

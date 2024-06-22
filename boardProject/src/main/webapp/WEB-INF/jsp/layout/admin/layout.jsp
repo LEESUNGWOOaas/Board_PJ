@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	<title>Movie Admin</title>
+	<title>Admin</title>
 	<!-- Bootstrap Styles-->
 	<link href="/assets/admin/css/bootstrap.css" rel="stylesheet" />
 	 <!-- FontAwesome Styles-->
@@ -83,7 +83,7 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
 						<i class="fa fa-user fa-fw"></i> 
-						<span class="current-user">${currentUser.userId}</span> 
+						<span class="current-user"></span> 
 						<i class="fa fa-caret-down"></i>
 					</a>
 					<ul class="dropdown-menu dropdown-user">
@@ -165,7 +165,7 @@
 		</div>
 	</div>
 	
-	<jsp:include page="/WEB-INF/jsp/include/common-layout.jsp"/>
+	
 	
 	<iframe id="downloadFrame" name="downloadFrame" frameborder="0" style="display:none;" title="빈 프레임"></iframe>
 

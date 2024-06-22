@@ -27,22 +27,17 @@
 			<form id="searchForm" action="list">
 				<div class="row mb-10 ">
 					<div class="col-sm-6 pt-10">
-						전체 <span class="text-red" style="color: red">${pageVO.totSize }</span>건
+						전체 <span class="text-red" style="color: red"></span>건
 					</div>
 					<div class="col-sm-3"></div>
 					<div class="col-sm-3">
 						<div class="input-group">
 							<div class="input-group-addon">
 								<select name="searchType">
-									<option value="title" <c:if test="${boardVO.searchType eq 'title'}">selected</c:if>>제목</option>
-									<option value="content" <c:if test="${boardVO.searchType eq 'content'}">selected</c:if>>내용</option>
+									
 								</select>
 							</div>
-							<input type="text" name="searchKeyword" class="form-control" value="${boardVO.searchKeyword}"> <span class="input-group-btn">
-								<button type="submit" class="btn btn-primary">
-									검색 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-								</button>
-							</span>
+							
 						</div>
 
 					</div>
@@ -64,21 +59,20 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:set var="rownum" value="${pageVO.rownum }" />
-								<c:forEach var="item" items="${list }">
+								
+								
 									<tr>
-										<td>${rownum }</td>
-										<td class="text-left"><a onclick="view(${item.boardNo})">${item.title }</a></td>
-										<td><fmt:formatDate value="${item.insertDate }" pattern="yyyy-MM-dd" /></td>
-										<td>${item.sci }</td>
+									
+										<td class="text-left"><a onclick="view()">1</a></td>
+										<td></td>
+										<td>1</td>
 									</tr>
-									<c:set var="rownum" value="${rownum-1 }" />
-								</c:forEach>
+									
+							
 							</tbody>
 						</table>
 					</div>
 
-					<jsp:include page="/WEB-INF/jsp/include/paging-admin.jsp" />
 
 				</div>
 			</div>
