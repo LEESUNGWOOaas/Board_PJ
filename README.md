@@ -1,4 +1,4 @@
-📝개요
+📝개요<br>
 Board 페이지 프로젝트 <br>
 🧾사용기술<br>
 🔲Java(Jsp/Spring-boot/Gradle/Mybatis)<br>
