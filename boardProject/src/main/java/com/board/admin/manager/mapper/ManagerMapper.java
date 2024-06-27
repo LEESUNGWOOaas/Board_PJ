@@ -9,5 +9,9 @@ import com.board.vo.ManagerVO;
 @Mapper
 public interface ManagerMapper {
 
-	List<ManagerVO> selectList(ManagerVO managerVO) throws Exception;
+	List<ManagerVO> selectList(ManagerVO managerVO)throws Exception;
+	
+	ManagerVO selectManager(ManagerVO managerVO)throws Exception;
+
+	int selectListCount(ManagerVO managerVO)throws Exception;
 }

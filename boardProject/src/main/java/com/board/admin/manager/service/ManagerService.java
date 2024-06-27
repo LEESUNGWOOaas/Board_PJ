@@ -6,6 +6,9 @@ import com.board.vo.ManagerVO;
 
 public interface ManagerService {
 
-	List<ManagerVO> selectList(ManagerVO managerVO) throws Exception;
+
+	ManagerVO selectManager(ManagerVO managerVO)throws Exception;
+
+	List<ManagerVO> selectList(ManagerVO managerVO)throws Exception;
 
 }

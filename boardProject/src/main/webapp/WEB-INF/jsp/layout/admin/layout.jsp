@@ -100,29 +100,18 @@
 			
 					
 					<li class="li-menu">
-						<a href="/admin/user/list"><i class="fa fa-dashboard"></i>Manager</a>
+						<a href="/admin/manager"><i class="fa fa-dashboard"></i>Manager</a>
 						</li>
 
 					<li class="li-menu">
-						<a href="/admin/board/list"><i class="fa fa-edit"></i>Board</a>
+						<a href="/admin/board"><i class="fa fa-edit"></i>Board</a>
 						<ul class="nav nav-second-level">
 						 
 							<li>
-								<a href="/admin/board/list">board</a>
+								<a href="/admin/board">board</a>
 							</li>
 						</ul> 
-					</li>
-					
-					
-					<li class="li-menu">
-						<a href="/admin/notice"><i class="fa fa-comment"></i>--</a>
-						<ul class="nav nav-second-level">
-							<li>
-								<a href="#">--</a>
-							</li>  
-						</ul>						
-					</li>
-					
+					</li>	
 					
 					
 					<li class="li-menu">

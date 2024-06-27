@@ -1,16 +1,21 @@
 package com.board.vo;
 
+import java.sql.Timestamp;
+
 import org.apache.ibatis.type.Alias;
 
 import lombok.Data;
 
 @Alias("managerVO")
 @Data
-public class ManagerVO {
+public class ManagerVO extends CommonVO{
 	
-	private int ManagerNo;
-	private String ManagerName;
-	private String ManagerPassword;
+	private int managerNo;
+	private String managerId;
+	private String managerName;
+	private String managerPassword;
 	private String Phone;
 	private String email;
+	private String deleteYn;
+	private Timestamp insertDate;
 }
