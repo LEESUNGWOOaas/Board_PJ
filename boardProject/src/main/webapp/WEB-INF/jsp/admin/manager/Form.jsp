@@ -40,7 +40,7 @@
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" name="memberId" id="memberId" title="아이디" value="${managerVO.managerId }" readonly></td>
+						<td><input type="text" name="managerId" id="managerId" title="아이디" value="${managerVO.managerId }" ></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -72,7 +72,7 @@ $(function(){
 
 function goList() {
 	var params = fnGetPrevParmas("");
-	fnRedirect("./list");
+	fnRedirect("/admin/manager");
 }
 
 function cancel(){
@@ -81,13 +81,6 @@ function cancel(){
 	fnRedirect(url+'?'+params);
 }
 
-$(function(){
-	var managerNo= "${managerVO.managerNo}";
-	if(managerNo== 0||managerNo== null){
-	$('#memberId').attr('readonly',false);
-	
-	}
-});
 
 $(function(){
 	var pwd = "${managerVO.managerPassword}";

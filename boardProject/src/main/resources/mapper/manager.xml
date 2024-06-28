@@ -5,18 +5,59 @@
 		select * from manager 
 		
 		where delete_yn = 'N'
+		 <if test="searchKeyword != null and searchKeyword != '' ">
+        	and ${searchType} like CONCAT('%', #{searchKeyword}, '%')
+        	</if>
+		
+		order by manager_no desc
+		 
+		  <if test="pageVO != null">
+        limit #{pageVO.startNo}, #{pageVO.listSize}
+        	</if>
+        	
 	</select>
 	
 	<select id = "selectListCount" parameterType="managerVO" resultType="int">
 		select count(*)
 		from manager
 		where delete_yn = 'N'
+		<if test="searchKeyword != null and searchKeyword != '' ">
+        	and ${searchType} like CONCAT('%', #{searchKeyword}, '%')
+        	</if>
 	</select>
 	
 	<select id="selectManager" parameterType="managerVO" resultType="managerVO">
 		select * from manager
 		
 		where manager_no = #{managerNo}
+		and delete_yn = 'N'
 	</select>
 	
+	<insert id="insert">
+		insert into manager 
+				set manager_id = #{managerId},
+					manager_name = #{managerName},
+					manager_password = #{managerPassword},
+					phone = #{phone},
+					email = #{email},
+					insert_date = now()
+	</insert>
+	
+	<update id="update">
+		update manager 
+		
+				set manager_id = #{managerId},
+					manager_name = #{managerName},
+					manager_password = #{managerPassword},
+					phone = #{phone},
+					email = #{email},
+					insert_date = now()
+			where manager_no = #{managerNo}
+	</update>
+	
+	<update id="delete">
+		update manager 
+		set delete_yn = 'Y'
+		where manager_no = #{managerNo}
+	</update>
 </mapper>

@@ -1,8 +1,8 @@
 package com.board.vo;
 
-import java.util.List;
+import lombok.Data;
 
-
+@Data
 public class CommonVO {
 
 	private int page = 1;
@@ -16,55 +16,5 @@ public class CommonVO {
 	private String orderBy;
 	
 	private PageVO pageVO;
-
-	public int getPage() {
-		return page;
-	}
-	public void setPage(int page) {
-		this.page = page;
-	}
-	public int getListSize() {
-		return listSize;
-	}
-	public void setListSize(int listSize) {
-		this.listSize = listSize;
-	}
-	public boolean isPaging() {
-		return isPaging;
-	}
-	public void setPaging(boolean isPaging) {
-		this.isPaging = isPaging;
-	}
-	public String getSearchType() {
-		return searchType;
-	}
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
-	}
-	public String getSearchKeyword() {
-		return searchKeyword;
-	}
-	public void setSearchKeyword(String searchKeyword) {
-		this.searchKeyword = searchKeyword;
-	}
-	public PageVO getPageVO() {
-		return pageVO;
-	}
-	public void setPageVO(PageVO pageVO) {
-		this.pageVO = pageVO;
-	}
-	public int getBlockSize() {
-		return blockSize;
-	}
-	public void setBlockSize(int blockSize) {
-		this.blockSize = blockSize;
-	}
-	public String getOrderBy() {
-		return orderBy;
-	}
-	public void setOrderBy(String orderBy) {
-		this.orderBy = orderBy;
-	}
-	
 	
 }

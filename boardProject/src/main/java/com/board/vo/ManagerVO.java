@@ -18,4 +18,6 @@ public class ManagerVO extends CommonVO{
 	private String email;
 	private String deleteYn;
 	private Timestamp insertDate;
+	
+	private String salt; //비밀번호 해쉬값
 }
