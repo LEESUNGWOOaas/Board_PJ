@@ -34,13 +34,16 @@ public class LoginController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/admin/logon",method =RequestMethod.POST)
+	@RequestMapping(value="/admin/login",method =RequestMethod.POST)
 	public Map<String, Object>loginCheck(Model model,ManagerVO infoVO)throws Exception{
 		Map<String, Object>resultMap = new HashMap<String, Object>();
 		
 		ManagerVO managerVO = managerService.selectManagerById(infoVO.getManagerId());
+		System.out.println("인포 VO : "+infoVO);
+		System.out.println("기존 VO : "+managerVO);
 		if(managerVO==null||
 		   !managerVO.getDeleteYn().equals("N")||
+		   managerVO.getSalt() == null ||
 		   !SHA256Util.getEncrypt(infoVO.getManagerPassword(),managerVO.getSalt()).equals(managerVO.getManagerPassword())){
 					
 			System.out.println("id : "+managerVO.getManagerId());

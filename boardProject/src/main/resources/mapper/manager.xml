@@ -33,31 +33,43 @@
 		and delete_yn = 'N'
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert"  parameterType="managerVO" useGeneratedKeys="true" keyProperty="managerNo">
 		insert into manager 
 				set manager_id = #{managerId},
 					manager_name = #{managerName},
 					manager_password = #{managerPassword},
+					salt = #{salt},
 					phone = #{phone},
 					email = #{email},
 					insert_date = now()
 	</insert>
 	
-	<update id="update">
+	<update id="update"  parameterType="managerVO">
 		update manager 
 		
 				set manager_id = #{managerId},
 					manager_name = #{managerName},
 					manager_password = #{managerPassword},
+					salt = #{salt},
 					phone = #{phone},
 					email = #{email},
 					insert_date = now()
 			where manager_no = #{managerNo}
 	</update>
 	
-	<update id="delete">
+	<update id="delete" parameterType="managerVO">
 		update manager 
 		set delete_yn = 'Y'
 		where manager_no = #{managerNo}
 	</update>
+	
+	
+	<select id="selectManagerById" parameterType="managerVO" resultType="managerVO">
+		select * from manager
+		where manager_id = #{managerId}
+	</select>
+	<select id="selectManagerByNo" parameterType="managerVO" resultType="managerVO">
+		select * from manager
+		where manager_no = #{managerNo}
+	</select>
 </mapper>

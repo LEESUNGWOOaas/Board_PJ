@@ -35,13 +35,13 @@ body{background: #EDEDED;}
 							<div class="form-group">
 								<label class="col-sm-3 control-label">아이디</label>
 								<div class="col-sm-9">
-									<input type="text" name="memberId" id="memberId" class="form-control" value="admin" placeholder="id" autofocus required>
+									<input type="text" name="managerId" id="managerId" class="form-control" value="admin" placeholder="id" autofocus required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">비밀번호</label>
 								<div class="col-sm-9">
-									<input type="password" name="pwd" id="pwd" class="form-control" value="1234" placeholder="Password" required>
+									<input type="password" name="managerPassword" id="managerPassword" class="form-control" value="1234" placeholder="Password" required>
 								</div>
 							</div>
 								<div class="form-group">
@@ -80,19 +80,16 @@ body{background: #EDEDED;}
 		function login(){
 			var frm=document.loginForm;
 			
-			if(!frm.memberId.value){
+			if(!frm.managerId.value){
 				alert("아이디를 입력해주세요");
 				frm.memberId.focus();
 				return;
-			}else if(!frm.pwd.value){
+			}else if(!frm.managerPassword.value){
 				alert("비밀번호를 입력해주세요");
 				frm.pwd.focus();
 				return;
 			}
-			 
-			console.log(memberId);
-			console.log(pwd);
-
+		
 
 			var params = $("#loginForm").serialize();
 			

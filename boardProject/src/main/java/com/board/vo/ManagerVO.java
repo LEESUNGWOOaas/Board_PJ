@@ -14,7 +14,7 @@ public class ManagerVO extends CommonVO{
 	private String managerId;
 	private String managerName;
 	private String managerPassword;
-	private String Phone;
+	private String phone;
 	private String email;
 	private String deleteYn;
 	private Timestamp insertDate;

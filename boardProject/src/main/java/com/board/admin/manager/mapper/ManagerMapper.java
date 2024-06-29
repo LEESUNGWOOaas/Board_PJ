@@ -23,4 +23,6 @@ public interface ManagerMapper {
 	int delete(ManagerVO managerVO)throws Exception; 
 	
 	ManagerVO selectManagerById(String managerId)throws Exception;
+
+	ManagerVO selectManagerByNo(int managerNo)throws Exception;
 }

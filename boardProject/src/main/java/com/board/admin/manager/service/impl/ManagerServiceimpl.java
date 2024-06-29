@@ -2,12 +2,15 @@ package com.board.admin.manager.service.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.board.admin.manager.mapper.ManagerMapper;
 import com.board.admin.manager.service.ManagerService;
+import com.board.common.SHA256Util;
 import com.board.vo.ManagerVO;
 import com.board.vo.PageVO;
 
@@ -33,14 +36,19 @@ public class ManagerServiceimpl implements ManagerService{
 
 	@Override
 	public int insert(ManagerVO managerVO) throws Exception {
-		int result = 0;
+		
 		if(managerVO.getManagerNo() == 0) {
-			result = mapper.insert(managerVO);
+			managerVO.setSalt(SHA256Util.generateSalt());
+			managerVO.setManagerPassword(SHA256Util.getEncrypt(managerVO.getManagerPassword(), managerVO.getSalt()));
+			return mapper.insert(managerVO);
 		}else {
-			result = mapper.update(managerVO);
+			if(StringUtils.hasText(managerVO.getManagerPassword() )) {
+				ManagerVO mbVO = mapper.selectManagerByNo(managerVO.getManagerNo());
+				managerVO.setManagerPassword(SHA256Util.getEncrypt(managerVO.getManagerPassword(), mbVO.getSalt()));
+			}
+			return mapper.update(managerVO);
 					
 		}
-		return result;
 	}
 
 
