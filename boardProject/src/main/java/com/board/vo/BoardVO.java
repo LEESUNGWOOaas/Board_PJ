@@ -9,6 +9,8 @@ import lombok.Data;
 @Alias("boardVO")
 @Data
 public class BoardVO extends CommonVO{
+	private String process = "board";
+	
 	private int boardNo;
 	private String title;
 	private String content;
@@ -16,5 +18,5 @@ public class BoardVO extends CommonVO{
 	private String deleteYn;
 	private String writer;
 	private int readCount;
-	
+	private String thumbnail;
 }

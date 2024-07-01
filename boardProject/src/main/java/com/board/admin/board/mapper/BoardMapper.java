@@ -18,4 +18,6 @@ public interface BoardMapper {
 	int update(BoardVO boardVO)throws Exception;
 	
 	int delete(BoardVO boardVO)throws Exception;
+
+	int selectBoardListCount(BoardVO boardVO)throws Exception;
 }

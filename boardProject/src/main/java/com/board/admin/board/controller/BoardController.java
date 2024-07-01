@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.board.admin.board.service.BoardService;
 import com.board.vo.BoardVO;
@@ -24,26 +25,26 @@ public class BoardController {
 		List<BoardVO> list = boardService.selectBoardList(boardVO);
 		model.addAttribute("list",list);
 		model.addAttribute("pageVO",boardVO.getPageVO());
-		return "List/board.admin";
+		return "/board/List.admin";
 	}
 	@RequestMapping("/admin/board/{boardNo}")
 	public String BoardView(Model model,BoardVO boardVO) throws Exception{
 		BoardVO board = boardService.selectBoard(boardVO);
 		model.addAttribute("board",board);
-		return "View/board.admin";
+		return "/board/View.admin";
 	}
 	@RequestMapping("/admin/board/form")
 	public String boardForm(Model model,BoardVO boardVO)throws Exception {
 		BoardVO board = boardService.selectBoard(boardVO);
 		model.addAttribute("board",board);
-		return "Form/board.admin";
+		return "/board/Form.admin";
 	}
 	
 	@ResponseBody
 	@RequestMapping("/admin/board/save")
-	public Map<String, Object> insert(Model model,BoardVO boardVO)throws Exception{
+	public Map<String, Object> insert(Model model,BoardVO boardVO,MultipartHttpServletRequest multi)throws Exception{
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		int result = boardService.insert(boardVO);
+		int result = boardService.insert(boardVO,multi);
 		
 		if(result > 0) {
 			resultMap.put("result",true);
