@@ -5,75 +5,98 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+
+
+
+
 <div class="header">
 	<h1 class="page-header">
-		<small>Board</small>
+		<small>Main</small>
 	</h1>
 </div>
 
+
 <div id="page-inner">
-
-	<div class="row mb-10 ">
-		<div class="col-sm-12 text-right">
-
-			<a href="form" class="btn btn-sm btn-primary">등록</a><br />
-		</div>
-	</div>
 
 	<div class="panel panel-default">
 
 		<div class="panel-body">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<colgroup>
+								<col width="50%">
+								<col width="25%">
+								<col width="25%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>항목</th>
+									&nbsp;
+									<th>금일건수&nbsp;&nbsp;</th>
+									<th>전체건수</th>
+								</tr>
+							</thead>
 
-			<form id="searchForm" action="list">
-				<div class="row mb-10 ">
-					<div class="col-sm-6 pt-10">
-						전체 <span class="text-red" style="color: red"></span>건
-					</div>
-					<div class="col-sm-3"></div>
-					<div class="col-sm-3">
-						<div class="input-group">
-							<div class="input-group-addon">
-								<select name="searchType">
-									
-								</select>
-							</div>
-							
-						</div>
+							<tbody>
+								<c:forEach var="item" items="${chart1}">
+									<tr>
+										<td>${item.bname }</td>
+										<td>${item.today}</td>
+										<td>${item.total}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 
 					</div>
 				</div>
-			</form>
+				<div class="col-sm-4">
+					<div id="chartdiv1"></div>
+				</div>
+			</div>
+
+			<hr />
 
 			<div class="row">
-				<div class="col-sm-12">
-
+				<div class="col-sm-4">
 					<div class="table-responsive">
-						<table class="table table-bordered table-hover text-center">
+						<table class="table table-bordered">
+							<colgroup>
+								<col width="50%">
+								<col width="25%">
+								<col width="25%">
+							</colgroup>
 							<thead>
 								<tr>
-									<th width="30">번호</th>
-									<th width="180">제목</th>
-									<!-- <th width="50">파일유무</th> -->
-									<th width="50">등록일</th>
-									<th width="40">공지유무</th>
+									<th>항목</th>
+									&nbsp;
+									<th>금일건수&nbsp;&nbsp;</th>
+									<th>전체건수</th>
 								</tr>
 							</thead>
+
 							<tbody>
-								
-								
+								<c:forEach var="item" items="${chart2}">
 									<tr>
-									
-										<td class="text-left"><a onclick="view()">1</a></td>
-										<td></td>
-										<td>1</td>
+										<td>${item.manager}</td>
+										<td>${item.today}</td>
+										<td>${item.total}</td>
 									</tr>
-									
-							
+								</c:forEach>
 							</tbody>
 						</table>
+
 					</div>
-
-
+				</div>
+				<div class="col-sm-4">
+					<div id="chartdiv2"></div>
 				</div>
 			</div>
 
@@ -82,36 +105,69 @@
 	</div>
 </div>
 
+
 <script>
 $(function(){
-	activeMenu('/admin/board/list');
+	activeMenu('/admin/bbs/bbs012/list');
 });
 
+am4core.ready(function() {
+
+	// Themes begin
+	am4core.useTheme(am4themes_kelly);
+	am4core.useTheme(am4themes_animated);
+	// Themes end
+    am4core.addLicense("ch-custom-attribution");
+	// Create chart instance
+	var chart = am4core.create("chartdiv1", am4charts.PieChart);
+
+	//chart.data = [];
+	<c:forEach var="item" items="${chart1}">
+	chart.data.push({"category":"${item.bname}", "litres":${item.total}});
+	</c:forEach>
+
+	 <!--Add and configure Series-->
+	var pieSeries = chart.series.push(new am4charts.PieSeries());
+	pieSeries.dataFields.value = "litres";
+	pieSeries.dataFields.category = "category";
+	pieSeries.slices.template.stroke = am4core.color("#fff");
+	pieSeries.slices.template.strokeOpacity = 1;
+	// This creates initial animation
+	pieSeries.hiddenState.properties.opacity = 1;
+	pieSeries.hiddenState.properties.endAngle = -90;
+	pieSeries.hiddenState.properties.startAngle = -90;
+	chart.hiddenState.properties.radius = am4core.percent(0);
+}); // end am4core.ready()
+
+am4core.ready(function() {
+
+	// Themes begin
+	am4core.useTheme(am4themes_kelly);
+	am4core.useTheme(am4themes_animated);
+	// Themes end
+    am4core.addLicense("ch-custom-attribution");
+	// Create chart instance
+	var chart = am4core.create("chartdiv2", am4charts.PieChart);
+
+	//chart.data = [];
+	<c:forEach var="item" items="${chart2}">
+	chart.data.push({"category":"${item.manager}", "litres":${item.total}});
+	</c:forEach>
 
 
-function view(boardNo){
-	location.href= boardNo+'?'+window.location.search.substring(1);
-}
-
-function del(boardNo){
-	if(!confirm("삭제하시겠습니까?")) return;
+	var pieSeries = chart.series.push(new am4charts.PieSeries());
+	pieSeries.dataFields.value = "litres";
+	pieSeries.dataFields.category = "category";
+	pieSeries.slices.template.stroke = am4core.color("#fff");
+	pieSeries.slices.template.strokeOpacity = 1;
+	// This creates initial animation
+	pieSeries.hiddenState.properties.opacity = 1;
+	pieSeries.hiddenState.properties.endAngle = -90;
+	pieSeries.hiddenState.properties.startAngle = -90;
+	chart.hiddenState.properties.radius = am4core.percent(0);
+}); // end am4core.ready()
+	 
+	 
 	
-	var params={
-			boardNo: boardNo
-	}
-	
-	$.ajax({
-		url : "./delete",
-		type: 'post',
-		data: params,
-		dataType: 'json',
-		success:function(response){
-			alert(response.msg);
-			if(response.result){
-				fnReload();
-				
-			}
-		}
-	});
-}
-</script>
+	</script>
+

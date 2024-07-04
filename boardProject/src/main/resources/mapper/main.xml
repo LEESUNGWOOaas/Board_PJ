@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.admin.main.mapper.MainMapper">
+	<select id="selectChart1" resultType="map">
+	    SELECT 'Board' AS bname,
+	           COUNT(CASE WHEN DATE(insert_date) = CURDATE() THEN 1 END) AS today,
+	           COUNT(*) AS total
+	    FROM board
+	    WHERE delete_yn = 'N'
+	</select>
+	
+	<select id="selectChart2" resultType="map">
+    SELECT 'Manager' AS manager,
+           COUNT(CASE WHEN DATE(insert_date) = CURDATE() THEN 1 END) AS today,
+           COUNT(*) AS total
+    FROM manager
+    WHERE delete_yn = 'N'
+	</select>
+	
+</mapper>

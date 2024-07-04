@@ -35,7 +35,7 @@ body{background: #EDEDED;}
 							<div class="form-group">
 								<label class="col-sm-3 control-label">아이디</label>
 								<div class="col-sm-9">
-									<input type="text" name="managerId" id="managerId" class="form-control" value="admin" placeholder="id" autofocus required>
+									<input type="text" name="managerId" id="managerId" class="form-control" value="tester" placeholder="id" autofocus required>
 								</div>
 							</div>
 							<div class="form-group">

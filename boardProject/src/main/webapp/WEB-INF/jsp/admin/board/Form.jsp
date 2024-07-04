@@ -85,18 +85,7 @@ $(function(){
 	activeMenu('/admin/board/list');
 	CKEDITOR.replace("content");
 	
-/* 
-	$(".gubun1").change(function(){
-		var gubun1 = $(this).val();
-		if(gubun1=='학술대회'){
-			$("#isss").addClass("hide");
-		}else if(gubun1=='학술지'){
-			$("#isss").removeClass("hide");//selectType-content클래스의 hide기능 제거
-			
-		} 
-	});
-	
-	 */
+
 });
 
 function goList() {
@@ -127,11 +116,6 @@ console.log($('#regForm').serialize());
 	
 	
 
-	/* $('.sci:checked').val()
-	if(sci == ""){
-		alert("SCI상태를  기입해주세요.");
-		return;
-	 */
 	if(title == ""){
 		alert("제목을 입력해주세요.");
 		return;
