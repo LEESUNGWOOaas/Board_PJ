@@ -13,6 +13,7 @@
 			save_name = #{saveName},
 			file_ext = #{fileExt},
 			file_size = #{fileSize},
+			insert_date = now(),
 			insert_user = #{insertUser}
     </insert>
     
@@ -33,7 +34,7 @@
 			file_ext,
 			file_size,
 			insert_user,
-			insertDate
+			insert_date
         FROM 	
         	file
         where 	
@@ -60,7 +61,7 @@
 			file_ext,
 			file_size,
 			insert_user,
-			insertDate
+			insert_date
         FROM 	
         	file
         where 	

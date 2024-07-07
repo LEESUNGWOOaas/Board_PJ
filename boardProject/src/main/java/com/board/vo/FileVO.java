@@ -19,7 +19,7 @@ public class FileVO {
 	private String saveName;
 	private String fileExt; 
 	private long fileSize;
-	
+
 	private String insertUser;
 	private Timestamp insertDate;
 	private int exceptNo; // 파일 제외용 추가

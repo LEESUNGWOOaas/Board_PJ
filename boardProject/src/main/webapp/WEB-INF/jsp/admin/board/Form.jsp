@@ -27,19 +27,7 @@
 						<col width="20%" />
 						<col width="80%" />
 					</colgroup>
-					<%-- <tr>
-						<th>*구분</th>
-						<td>
-						<select name="bid">
-						<option value="bbs001" <c:if test="${bbsVO.bid eq 'bbs001'}">selected</c:if>>논문</option>
-						<option value="bbs002" <c:if test="${bbsVO.bid eq 'bbs002'}">selected</c:if>>특허</option>
-						<option value="bbs003" <c:if test="${bbsVO.bid eq 'bbs003'}">selected</c:if>>산출물</option>
-						</select>
-						<input type="hidden" name="구분" id="bid" title="구분" class="form-control" value="${bbsVO.bid }" required></td>
-					</tr> --%>
-					
-					
-					
+
 					<tr>
 						<th>*제목</th>
 						<td><input type="text" name="title" id="title" title="제목" class="form-control" value="${board.title }"required></td>
@@ -49,16 +37,16 @@
 						<th>*내용</th>
 						<td ><textarea name="content" id="content" title="내용" class="form-control"  required>${board.content }</textarea></td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<th>표지 파일 </th>
 						
 						<td>※ 이미지 사이즈는 380pxx430px 사이즈 규격으로 올려 주십시오
-						<input type="file" name="fFile" id="fFile" title="표지 파일" class="form-control"></td>
-					</tr>
+						<input type="file" name="thumbnail" id="thumbnail" title="표지 파일" class="form-control"></td>
+					</tr> -->
 					
 					<tr>
 						<th>내용 파일 </th>
-						<td><input type="file" name="cFile" id="cFile" title="내용 파일"  class="form-control"></td>
+						<td><input type="file" name="file" id="file" title="내용 파일"  class="form-control"></td>
 					</tr>
 				</table>
 				
@@ -90,7 +78,7 @@ $(function(){
 
 function goList() {
 	var params = fnGetPrevParmas("");
-	fnRedirect("./list");
+	fnRedirect("/admin/board/");
 }
 
 function cancel(){

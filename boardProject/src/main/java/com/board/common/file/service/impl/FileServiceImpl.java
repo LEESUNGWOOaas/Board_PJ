@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,11 @@ public class FileServiceImpl implements FileService{
 	private String serverPath;
 	
 	
-	
+	@PostConstruct
+    public void init() {
+        System.out.println("serverPath = " + serverPath); // 디버깅 로그 추가
+    }
+
 	
 	@Override
 	public List<FileVO> selectFileList(FileVO fileVO) throws Exception{

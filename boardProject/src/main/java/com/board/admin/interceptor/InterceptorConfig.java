@@ -10,14 +10,13 @@ import com.board.admin.interceptor.AdminInterceptor;
 @Configuration
 public class InterceptorConfig extends WebMvcConfigurerAdapter{
 
-	
-	  @Override 
-	  public void addInterceptors(InterceptorRegistry registry) {
-	  registry.addInterceptor(new AdminInterceptor())
-	  .excludePathPatterns("/admin/login") 
-	  .addPathPatterns("/admin/**");
-	  
-	  }
+	/*
+	 * @Override public void addInterceptors(InterceptorRegistry registry) {
+	 * registry.addInterceptor(new AdminInterceptor())
+	 * .excludePathPatterns("/admin/login") .addPathPatterns("/admin/**");
+	 * 
+	 * }
+	 */
 	 
 	 
 }
